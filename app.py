@@ -51,7 +51,7 @@ def search(searchName):
     if channelId == 'Not found':
         return render_template('/notfound.html')
     
-    videoDetails = videoSearch.findLeatestVideos(channelId)
+    videoDetails = videoSearch.findLatestVideos(channelId)
     return render_template('show.html', videoDetails = videoDetails)
 
 if __name__ == '__main__':

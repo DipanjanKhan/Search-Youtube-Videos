@@ -17,7 +17,7 @@ def findChannelId(channelName):
             return channel_id
     return 'Not found'
 
-def findLeatestVideos(channel_id):
+def findLatestVideos(channel_id):
     youtube = build('youtube', 'v3', developerKey = api_key)
     request = youtube.search().list(
         part = 'snippet',
