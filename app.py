@@ -15,12 +15,13 @@ db = SQLAlchemy(app)
 class RecentSearch(db.Model):
     slno = db.Column(db.Integer, primary_key = True)
     searchName = db.Column(db.String(200), nullable = False)
-    date_created = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+    date_created = db.Column(db.DateTime, default= datetime.now())
 
 @app.route('/')
 def youtubeVideoFinder():
     allRecentSearch = list(reversed(RecentSearch.query.all()))
     return render_template('index.html', allRecentSearch = allRecentSearch)
+    
 
 @app.route('/', methods = ['GET', 'POST'])
 def searchVideos():
